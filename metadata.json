@@ -1,0 +1,6 @@
+{
+  "name": "Luna Audio Asset Generator",
+  "description": "Educational audio asset manager and generator for Brazilian Portuguese literacy featuring the Luna TTS voice.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

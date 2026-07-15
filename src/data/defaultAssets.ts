@@ -1,0 +1,336 @@
+export interface AudioAsset {
+  id: string;
+  category: "fonemas" | "silabas" | "palavras" | "instrucoes_e_feedbacks";
+  text_to_speak: string;
+  file_name: string;
+  difficulty: "fácil" | "médio" | "difícil";
+  status: "pending" | "generating" | "completed" | "failed";
+  audioUrl?: string;
+  voiceName?: "Kore" | "Aoede" | "Puck" | "Charon" | "Fenrir";
+  speed?: "lento" | "normal" | "rápido";
+  toneStyle?: "didático" | "animado" | "suave" | "fônico";
+  pureSoundMode?: boolean;
+  pureSoundText?: string;
+}
+
+export const DEFAULT_ASSETS: AudioAsset[] = [
+  // --- FONEMAS ---
+  {
+    id: "fon_a",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O som da vogal A é... aaa! Repita comigo: aaa!",
+    file_name: "luna_fon_a.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "fon_e_fechado",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O som da letra E pode ser fechado... êêê! Como em estrela. êêê!",
+    file_name: "luna_fon_e_fechado.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "fon_e_aberto",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O som da letra E também pode ser aberto... ééé! Como em pé. ééé!",
+    file_name: "luna_fon_e_aberto.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "fon_i",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O som da vogal I é... iii! Juntinho como na palavra igreja. iii!",
+    file_name: "luna_fon_i.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "fon_o_fechado",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O som da letra O pode ser fechado... ôôô! Como em olho. ôôô!",
+    file_name: "luna_fon_o_fechado.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "fon_o_aberto",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O som da letra O também pode ser aberto... óóó! Como em sol. óóó!",
+    file_name: "luna_fon_o_aberto.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "fon_u",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O som da vogal U é... uuu! Como o som da uva. uuu!",
+    file_name: "luna_fon_u.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "fon_a_nasal",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Quando colocamos o til, a letra A fica nasal... ããã! Como em maçã. ããã!",
+    file_name: "luna_fon_a_nasal.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "fon_b",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] A letra B faz o som... b... b... Juntando com as vogais, faz ba, be, bi, bo, bu. Escute só: b... b...",
+    file_name: "luna_fon_b.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "fon_c_k",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] A letra C com as vogais A, O e U faz o som... c... c... Como em casa! Escute: c... c...",
+    file_name: "luna_fon_c_forte.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "fon_c_s",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] A letra C com as vogais E e I muda de som e faz... sss... sss... Como em cenoura! Escute: sss... sss...",
+    file_name: "luna_fon_c_brando.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "fon_d",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] A letra D faz o som... d... d... Sentiu a língua nos dentes? d... d... dê!",
+    file_name: "luna_fon_d.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "fon_g_forte",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] A letra G com as vogais A, O e U faz o som... g... g... Bem lá na garganta! g... g... gato!",
+    file_name: "luna_fon_g_forte.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "fon_g_brando",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] A letra G com E e I faz o som... jjj... jjj... Igualzinho à letra J! Como em girafa. jjj...",
+    file_name: "luna_fon_g_brando.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "fon_r_forte",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O R forte arranha a garganta... rrr... rrr... Como no início de rato ou carro! rrr...",
+    file_name: "luna_fon_r_forte.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "fon_r_brando",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O R fraco faz a língua tremer... r... r... Como no meio de arara. Escute a tremidinha: r... r...",
+    file_name: "luna_fon_r_brando.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "fon_lh",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] As letras L e H juntas formam o som... lhâ! Como na palavra folha! lhâ!",
+    file_name: "luna_fon_lh.wav",
+    difficulty: "difícil",
+    status: "pending"
+  },
+  {
+    id: "fon_nh",
+    category: "fonemas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] As letras N e H juntas fazem um som bem nasal... nhê! Como em ninho! nhê!",
+    file_name: "luna_fon_nh.wav",
+    difficulty: "difícil",
+    status: "pending"
+  },
+
+  // --- SÍLABAS ---
+  {
+    id: "sil_ba",
+    category: "silabas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Juntando o B e o A, formamos... BA! Repita: BA!",
+    file_name: "luna_sil_ba.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "sil_ca",
+    category: "silabas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Juntando o C e o A, temos... CA! Como em casa! CA!",
+    file_name: "luna_sil_ca.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "sil_ce",
+    category: "silabas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Lembra da regra? C com E faz... CE! Como em cenoura! CE!",
+    file_name: "luna_sil_ce.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "sil_ma",
+    category: "silabas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] O M com o A forma... MA! De macaco! MA!",
+    file_name: "luna_sil_ma.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "sil_pra",
+    category: "silabas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Agora um som com três letras! P, R, A formam... PRA! Como em prato! PRA!",
+    file_name: "luna_sil_pra.wav",
+    difficulty: "difícil",
+    status: "pending"
+  },
+  {
+    id: "sil_sol",
+    category: "silabas",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] E com S, O, L, formamos uma sílaba forte... SOL! Que também é uma palavra inteira! SOL!",
+    file_name: "luna_sil_sol.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+
+  // --- PALAVRAS ---
+  {
+    id: "pal_bolo",
+    category: "palavras",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Bolo. Bo-lo. Vamos comer um bolo delicioso? Bolo!",
+    file_name: "luna_pal_bolo.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "pal_pato",
+    category: "palavras",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Pato. Pa-to. Olha o pato nadando na lagoa! Pato!",
+    file_name: "luna_pal_pato.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "pal_sapo",
+    category: "palavras",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Sapo. Sa-po. O sapo deu um pulo bem alto! Sapo!",
+    file_name: "luna_pal_sapo.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "pal_chuva",
+    category: "palavras",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Chuva. Chu-va. Que som gostoso de chuva caindo! Chuva!",
+    file_name: "luna_pal_chuva.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "pal_milho",
+    category: "palavras",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Milho. Mi-lho. Hum, milho cozido quentinho! Milho!",
+    file_name: "luna_pal_milho.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "pal_ninho",
+    category: "palavras",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Ninho. Ni-nho. Os passarinhos estão dormindo no ninho. Ninho!",
+    file_name: "luna_pal_ninho.wav",
+    difficulty: "médio",
+    status: "pending"
+  },
+  {
+    id: "pal_prato",
+    category: "palavras",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Prato. Pra-to. Coloque a comida gostosa no prato! Prato!",
+    file_name: "luna_pal_prato.wav",
+    difficulty: "difícil",
+    status: "pending"
+  },
+  {
+    id: "pal_estrela",
+    category: "palavras",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Estrela. Es-tre-la. Olhe para o céu e encontre a estrela brilhante! Estrela!",
+    file_name: "luna_pal_estrela.wav",
+    difficulty: "difícil",
+    status: "pending"
+  },
+
+  // --- INSTRUÇÕES E FEEDBACKS ---
+  {
+    id: "inst_boas_vindas",
+    category: "instrucoes_e_feedbacks",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Olá, amiguinho! Eu sou a Luna. Estou muito feliz em ter você aqui para brincar e aprender as letras comigo! Vamos começar?",
+    file_name: "luna_inst_boas_vindas.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "feed_acerto_1",
+    category: "instrucoes_e_feedbacks",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Parabéns! Você acertou! Você é super inteligente!",
+    file_name: "luna_feed_acerto_1.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "feed_acerto_2",
+    category: "instrucoes_e_feedbacks",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Que incrível! Você está brilhando hoje! Continue assim!",
+    file_name: "luna_feed_acerto_2.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "feed_erro",
+    category: "instrucoes_e_feedbacks",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Ah, quase lá! Não desanime, vamos tentar mais uma vez juntos?",
+    file_name: "luna_feed_erro.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "inst_pergunta_som",
+    category: "instrucoes_e_feedbacks",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Escute com muita atenção... Qual é a letrinha que faz esse som?",
+    file_name: "luna_inst_pergunta_som.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "inst_arrastar_silabas",
+    category: "instrucoes_e_feedbacks",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Agora, use o seu dedinho para arrastar as sílabas e formar a palavra certinha!",
+    file_name: "luna_inst_arrastar_silabas.wav",
+    difficulty: "fácil",
+    status: "pending"
+  },
+  {
+    id: "inst_sucesso_fase",
+    category: "instrucoes_e_feedbacks",
+    text_to_speak: "[warm, clear, slow, child-friendly, educational] Viva! Você completou esta fase inteirinha! Ganhou uma estrela dourada gigante! Parabéns!",
+    file_name: "luna_inst_sucesso_fase.wav",
+    difficulty: "fácil",
+    status: "pending"
+  }
+];
